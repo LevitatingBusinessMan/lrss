@@ -38,7 +38,9 @@ class SubscriptionsController < ApplicationController
 
   private
   def subscription_params
-    params.require(:subscription).permit(:name, :url)
+    p_ = params.require(:subscription).permit(:name, :url, tags: [])
+    p_[:tags] =  p p_[:tags].delete_if(&:empty?).map(&:to_i).map {|id| Tag.find id}
+    p_
   end
 
 end

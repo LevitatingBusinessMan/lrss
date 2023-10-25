@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-
-  resources :subscriptions, path: :subscription
-
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  root "feed#index"
+  resources :subscriptions, path: :subscription
 end
