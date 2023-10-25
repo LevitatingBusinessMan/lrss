@@ -6,6 +6,7 @@ class SubscriptionsController < ApplicationController
 
   def show
     @subscription = Subscription.find(params[:id])
+    render :edit
   end
 
   def create
@@ -13,18 +14,17 @@ class SubscriptionsController < ApplicationController
     if @subscription.save
       redirect_to @subscription
     else
-      render :new
+      redirect_to root_path
     end
   end
 
   def update
     @subscription = Subscription.find(params[:id])
-    p params
 
     if @subscription.update subscription_params
       redirect_to @subscription
     else
-      render
+      render :edit
     end
 
   end

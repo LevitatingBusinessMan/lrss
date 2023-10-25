@@ -4,9 +4,7 @@ h2 These are your subscriptions:
 ul
     - for sub in @subscriptions
         li: span
-            = sub.rss.channel.title
-            = " "
-            =link_to "Subscription", sub
+            =link_to sub.rss.channel.title, sub
             ul
                 - for item in sub.rss.items
                     li: span
