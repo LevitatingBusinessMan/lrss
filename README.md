@@ -1,4 +1,7 @@
-# README
+# Levitating's RSS aggregator
+This is an RSS aggregator and webhook manager build to be simple and fast.
+
+---
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
