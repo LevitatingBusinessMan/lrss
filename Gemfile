@@ -74,3 +74,5 @@ end
 gem "slim-rails", "~> 3.6"
 
 gem "rss", "~> 0.3.0"
+
+gem "sass-rails", "~> 6.0"

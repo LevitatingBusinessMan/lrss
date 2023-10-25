@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_25_002354) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_25_142412) do
   create_table "subscriptions", force: :cascade do |t|
     t.string "name"
     t.string "url"
@@ -32,4 +32,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_25_002354) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "webhook_requests", force: :cascade do |t|
+    t.string "webhook_id", limit: 36, null: false
+    t.text "body"
+    t.text "headers"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["webhook_id"], name: "index_webhook_requests_on_webhook_id"
+  end
+
+  create_table "webhooks", id: { type: :string, limit: 36 }, force: :cascade do |t|
+    t.text "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "webhook_requests", "webhooks"
 end

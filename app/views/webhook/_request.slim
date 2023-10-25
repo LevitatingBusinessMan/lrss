@@ -1,0 +1,15 @@
+table 
+    tr: th= req.created_at
+    tr: td.headers= req.headers
+    tr: td= req.body
+
+scss:
+    td.headers {
+        white-space: pre-line;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+

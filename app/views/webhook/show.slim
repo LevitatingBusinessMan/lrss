@@ -1,0 +1,12 @@
+== render "home"
+
+h1 Webhook: #{@webhook.name}
+
+pre
+    | curl -X POST 'http://127.0.0.1:3000/#{webhook_path(@webhook)}' -d "This is my post body" -H "Foo: Bar"
+
+- for req in @webhook.requests
+    == render "request", req: req
+    br
+
+= debug @webhook.requests

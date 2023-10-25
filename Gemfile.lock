@@ -88,6 +88,7 @@ GEM
       irb (>= 1.5.0)
       reline (>= 0.3.1)
     erubi (1.12.0)
+    ffi (1.16.3)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.1)
@@ -177,6 +178,16 @@ GEM
     rss (0.3.0)
       rexml
     rubyzip (2.3.2)
+    sass-rails (6.0.0)
+      sassc-rails (~> 2.1, >= 2.1.1)
+    sassc (2.4.0)
+      ffi (~> 1.9)
+    sassc-rails (2.1.2)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     selenium-webdriver (4.14.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -235,6 +246,7 @@ DEPENDENCIES
   rack-mini-profiler
   rails (~> 7.0.8)
   rss (~> 0.3.0)
+  sass-rails (~> 6.0)
   selenium-webdriver
   slim-rails (~> 3.6)
   sprockets-rails
