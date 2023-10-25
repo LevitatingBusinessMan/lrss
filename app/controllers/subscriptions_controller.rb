@@ -21,11 +21,8 @@ class SubscriptionsController < ApplicationController
   def update
     @subscription = Subscription.find(params[:id])
 
-    if @subscription.update subscription_params
-      redirect_to @subscription
-    else
-      render :edit
-    end
+    @subscription.update subscription_params
+    render :edit
 
   end
 

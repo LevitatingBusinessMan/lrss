@@ -13,7 +13,7 @@ css:
         height: 20px;
     }
 
-= form_with model: @subscription do |form|
+= form_with model: @subscription, data: {turbo: false} do |form|
     = form.label :name
     br
     = form.text_field :name
