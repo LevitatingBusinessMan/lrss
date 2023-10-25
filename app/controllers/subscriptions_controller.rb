@@ -1,7 +1,7 @@
 class SubscriptionsController < ApplicationController
   def new
     @subscription = Subscription.new
-    render :update
+    render :edit
   end
 
   def show
@@ -34,6 +34,8 @@ class SubscriptionsController < ApplicationController
   end
 
   def destroy
+    Subscription.find(params[:id]).destroy
+    redirect_to root_path
   end
 
   private

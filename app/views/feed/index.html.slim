@@ -2,6 +2,18 @@ h1 Welcome to Levitating's RSS Aggregator
 br
 h2 These are your subscriptions:
 ul
-    - @subscriptions.each do |sub|
-        li
-            = link_to sub.name, sub
+    - for sub in @subscriptions
+        li: span
+            = sub.rss.channel.title
+            = " "
+            =link_to "Subscription", sub
+            ul
+                - for item in sub.rss.items
+                    li: span
+                        a href=item.link target="_blank" = item.title
+                        - unless item.comments.nil?
+                            = " ("
+                            a href=item.comments target="_blank" Comments
+                            = ")"
+
+= link_to "New subscription", new_subscription_path

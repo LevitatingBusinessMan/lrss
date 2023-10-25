@@ -58,7 +58,7 @@ group :development do
   gem "web-console"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
-  # gem "rack-mini-profiler"
+  gem "rack-mini-profiler"
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
@@ -72,3 +72,5 @@ group :test do
 end
 
 gem "slim-rails", "~> 3.6"
+
+gem "rss", "~> 0.3.0"

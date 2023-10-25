@@ -1,5 +1,7 @@
 h1 Subscription: #{@subscription.name}
-a[href=@subscription.url]= @subscription.url
+a href=@subscription.url = @subscription.url
 br
 p tags: #{@subscription.tags.map(&:name)}
-a[href=edit_subscription_path(@subscription)] Edit
+= link_to "Edit", edit_subscription_path(@subscription)
+br
+= link_to "Delete", @subscription, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }
