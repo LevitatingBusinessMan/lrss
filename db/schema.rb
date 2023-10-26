@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_25_142412) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_26_135615) do
+  create_table "items", primary_key: "link", id: :string, force: :cascade do |t|
+    t.boolean "seen"
+    t.integer "subscription_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["subscription_id"], name: "index_items_on_subscription_id"
+  end
+
   create_table "subscriptions", force: :cascade do |t|
     t.string "name"
     t.string "url"
@@ -47,5 +55,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_25_142412) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "items", "subscriptions"
   add_foreign_key "webhook_requests", "webhooks"
 end

@@ -35,6 +35,13 @@ class SubscriptionsController < ApplicationController
     redirect_to root_path
   end
 
+  # Mark all items as seen
+  def see
+    @subscription = Subscription.find(params[:id])
+    @subscription.items.each(&:see)
+    redirect_to root_path
+  end
+
   private
   def subscription_params
     p_ = params.require(:subscription).permit(:name, :url, tags: [])

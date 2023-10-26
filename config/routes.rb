@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :subscriptions, path: :sub
   resources :webhook
   post "/webhook/:id", to: "webhook#post"
+  post "/sub/:id/see", to: "subscriptions#see"
 end

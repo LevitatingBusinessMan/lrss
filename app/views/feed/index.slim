@@ -6,14 +6,19 @@ ul
         li: details open=""
             summary
                 = link_to sub.rss.channel.title, sub
+                = " "
+                = link_to "seen", subscription_path(sub) + "/see", data: { turbo_method: :post }
             ul
                 - for item in sub.rss.items
                     li: span
+                        - item_model = Item.find(item.link)
                         a href=item.link target="_blank" = item.title
                         - unless item.comments.nil?
                             = " ("
                             a href=item.comments target="_blank" Comments
                             = ")"
+                        - if !item_model.seen
+                            = " (New)"
 
 = link_to "New subscription", new_subscription_path
 br
