@@ -4,7 +4,7 @@ class DownloadFeedJob < ApplicationJob
 
   def perform sub
     sub.get_rss
-    Turbo::StreamsChannel.broadcast_to(
+    Turbo::StreamsChannel.broadcast_replace_to(
       :subscriptions,
       target: dom_id(sub),
       partial: 'feed/subscription',
