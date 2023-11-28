@@ -27,6 +27,7 @@ scss:
     = form.select :tags, Tag.all.collect {|t| [t.name, t.id]}, {include_blank: true, selected: @subscription.tags.map(&:id)}, {multiple: true, size: Tag.all.length + 1}
     br
     br
-    = form.submit
+    = form.button
     br
-    = button_to "Delete", @subscription, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }
+
+= button_to "Delete", @subscription, method: :delete, data: { confirm: "Are you sure?", turbo: false }

@@ -1,2 +1,4 @@
 // Import all the channels to be used by Action Cable
-import "channels/subscriptions_channel"
+
+// subscription channel is connected via turbo_stream_from in the feeds view
+//import "channels/subscriptions_channel"

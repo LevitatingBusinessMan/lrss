@@ -23,7 +23,6 @@ class SubscriptionsController < ApplicationController
 
     @subscription.update subscription_params
     render :edit
-
   end
 
   def edit
