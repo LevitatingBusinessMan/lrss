@@ -1,0 +1,7 @@
+div id=dom_id(sub)
+	li: details
+			summary title=sub.name
+				span.red= "#{sub.name} failed... #{exception.inspect}"
+				= " ("
+				= link_to "edit", sub
+				= ")"

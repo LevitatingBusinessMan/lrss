@@ -1,21 +1,21 @@
 div id=dom_id(sub)
     - if sub.rss.nil?
         li: details
-                summary
+                summary title=sub.name
                     span= "#{sub.name} downloading... "
                     = " ("
-                    = link_to "edit", sub, title: sub.name
+                    = link_to "edit", sub
                     = ")"
     - else
         li: details open=""
-            summary
-                = link_to sub.rss.channel.title, sub.rss.channel.link, title: sub.name
+            summary title=sub.name
+                = link_to sub.rss.channel.title, sub.rss.channel.link
                 = " ("
-                = link_to "edit", sub, title: sub.name
+                = link_to "edit", sub
                 = ")"
             ul
                 - for item in sub.rss.items
-                    li: span
+                    li: span title=item.description
                         a href=item.link target="_blank" = item.title
                         - unless item.comments.nil?
                             = " ("
