@@ -1,0 +1,11 @@
+li: details open=""
+    summary
+        = link_to sub.rss.channel.title, sub, title: sub.name
+    ul
+        - for item in sub.rss.items
+            li: span
+                a href=item.link target="_blank" = item.title
+                - unless item.comments.nil?
+                    = " ("
+                    a href=item.comments target="_blank" Comments
+                    = ")"

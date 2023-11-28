@@ -3,17 +3,7 @@ br
 h2 These are your subscriptions:
 ul
     - for sub in @subscriptions
-        li: details open=""
-            summary
-                = link_to sub.rss.channel.title, sub
-            ul
-                - for item in sub.rss.items
-                    li: span
-                        a href=item.link target="_blank" = item.title
-                        - unless item.comments.nil?
-                            = " ("
-                            a href=item.comments target="_blank" Comments
-                            = ")"
+        == render "subscription", sub: sub
 
 = link_to "New subscription", new_subscription_path
 br
