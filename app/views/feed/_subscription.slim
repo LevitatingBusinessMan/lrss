@@ -22,5 +22,8 @@ div id=dom_id(sub)
                             a href=item.comments target="_blank" Comments
                             = ")"
                         = " ("
-                        span= item.pubDate.to_fs(:date)
+                        - if DateTime.now.to_date - item.pubDate.to_date > 7
+                            span= item.pubDate.to_fs(:date) 
+                        - else 
+                            span.green= item.pubDate.to_fs(:date) 
                         = ")"
