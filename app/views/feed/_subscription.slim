@@ -18,12 +18,14 @@ div id=dom_id(sub)
                     li: span title=item.description
                         a href=item.link target="_blank" = item.title
                         - unless item.comments.nil?
+                            span.small
+                                = " ("
+                                a href=item.comments target="_blank" Comments
+                                = ")"
+                        spa.small
                             = " ("
-                            a href=item.comments target="_blank" Comments
+                            - if DateTime.now.to_date - item.pubDate.to_date > 7
+                                = item.pubDate.to_fs(:date) 
+                            - else 
+                                span.green= item.pubDate.to_fs(:date) 
                             = ")"
-                        = " ("
-                        - if DateTime.now.to_date - item.pubDate.to_date > 7
-                            span= item.pubDate.to_fs(:date) 
-                        - else 
-                            span.green= item.pubDate.to_fs(:date) 
-                        = ")"
