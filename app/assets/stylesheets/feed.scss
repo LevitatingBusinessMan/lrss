@@ -17,3 +17,12 @@ a {
 .small {
 	font-size: 11px;
 }
+
+.overflow {
+	display: none;
+}
+
+a.see_more {
+	text-decoration: underline;
+	cursor: pointer;
+}

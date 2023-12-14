@@ -14,18 +14,21 @@ div id=dom_id(sub)
                 = link_to "edit", sub
                 = ")"
             ul
-                - for item in sub.rss.items
-                    li: span title=item.description
+                - sub.rss.items.each_with_index do |item, i|
+                    li class=i>20?"overflow":"" : span title=item.description
                         a href=item.link target="_blank" = item.title
-                        - unless item.comments.nil?
+                        - unless defined? item.comments && item.comments.nil?
                             span.small
                                 = " ("
                                 a href=item.comments target="_blank" Comments
                                 = ")"
-                        spa.small
-                            = " ("
-                            - if DateTime.now.to_date - item.pubDate.to_date > 7
-                                = item.pubDate.to_fs(:date) 
-                            - else 
-                                span.green= item.pubDate.to_fs(:date) 
-                            = ")"
+                        - if defined? item.pubDate 
+                            spa.small
+                                = " ("
+                                - if DateTime.now.to_date - item.pubDate.to_date > 7
+                                    = item.pubDate.to_fs(:date) 
+                                - else 
+                                    span.green= item.pubDate.to_fs(:date) 
+                                = ")"
+            - if sub.rss.items.length > 20
+                a.see_more onclick="show('#{dom_id(sub)}')" (See more)
