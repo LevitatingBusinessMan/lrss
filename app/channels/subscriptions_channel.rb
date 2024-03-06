@@ -4,12 +4,7 @@ class SubscriptionsChannel < ApplicationCable::Channel
 
   def subscribed
     stream_from "subscriptions"
-
-    # Download all subscriptions and broadcast them
-    @subscriptions = Subscription.all
-		for sub in @subscriptions
-			DownloadFeedJob.perform_later sub
-		end
+    DownloadFeedJob.perform_later
   end
 
   def unsubscribed

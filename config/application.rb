@@ -6,10 +6,17 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+require "typhoeus/cache/rails"
+
 module Lrss
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+
+    # Configure the caching mechanism for Typhoeus
+    config.after_initialize do
+      Typhoeus::Config.cache = Typhoeus::Cache::Rails.new Rails.cache, default_ttl: 60
+    end
 
     # Configuration for the application, engines, and railties goes here.
     #
