@@ -11,7 +11,7 @@ class DownloadFeedJob < ApplicationJob
         partial: 'feed/subscription',
         locals: { sub: sub }
       )
-    rescue OpenURI::HTTPError, Errno::ENOENT => ex
+    rescue Exception => ex
       logger.error "#{sub.name.inspect} failed to download from #{sub.url}: #{ex.inspect}"
       SubscriptionsChannel.broadcast_replace_to(
         :subscriptions,
