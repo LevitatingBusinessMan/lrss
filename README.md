@@ -1,6 +1,10 @@
 # Levitating's RSS aggregator
 This is an RSS aggregator and webhook manager build to be simple and fast.
 
+By default Rails does not cache in development mode.
+To toggle caching run `rails dev:cache`.
+This will allow the rss feeds to be cached.
+
 ---
 
 This README would normally document whatever steps are necessary to get the
