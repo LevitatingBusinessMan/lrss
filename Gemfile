@@ -80,3 +80,7 @@ gem "sass-rails", "~> 6.0"
 gem "typhoeus", "~> 1.4"
 
 gem "json", "~> 2.7"
+
+gem "postgresql", "~> 1.0"
+
+gem "redis", "~> 5.1"

@@ -15,7 +15,7 @@ module Lrss
 
     # Configure the caching mechanism for Typhoeus
     config.after_initialize do
-      Typhoeus::Config.cache = Typhoeus::Cache::Rails.new Rails.cache, default_ttl: 60
+      Typhoeus::Config.cache = Typhoeus::Cache::Rails.new Rails.cache, default_ttl: 300
     end
 
     # Configuration for the application, engines, and railties goes here.
